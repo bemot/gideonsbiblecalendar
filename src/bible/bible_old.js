@@ -91,12 +91,30 @@ function ActivateBible(props) {
 function ShowCurentBible(props) {
   //console.log("in show current bible", og);
   if (props.biblename === "Ukrainian Ogienko Bible")
-    return <div>Current bible: {props.biblename}</div>;
+    return (
+      <div>
+        Current bible: {props.biblename}
+        <br />
+        {og.books[0].chapters[0].verses[0].text}
+      </div>
+    );
   if (props.biblename === "King James Bible")
-    return <div>Current bible: {props.biblename}</div>;
+    return (
+      <div>
+        Current bible: {props.biblename}
+        <br />
+        {kj.books[0].chapters[0].verses[0].text}
+      </div>
+    );
 
   if (props.biblename === "Russian Synodal Bible")
-    return <div>Current bible: {props.biblename}</div>;
+    return (
+      <div>
+        Current bible: {props.biblename}
+        <br />
+        {rs.books[0].chapters[0].verses[1].text}
+      </div>
+    );
 }
 
 function ShowDayMonth(props) {
@@ -166,13 +184,6 @@ class Bible extends Component {
     return (
       <div>
         <div>
-          <ActivateBible
-            onChange={(value) => {
-              this.handleWhatBible(value.name);
-            }}
-          />
-        </div>
-        <div>
           <DatePicker
             selected={this.state.date}
             showIcon
@@ -187,6 +198,11 @@ class Bible extends Component {
         <div>
           <ShowDayMonth date={this.state.date} />
         </div>
+        <ActivateBible
+          onChange={(value) => {
+            this.handleWhatBible(value.name);
+          }}
+        />
         <ShowCurentBible biblename={this.state.biblename} />
       </div>
     );
