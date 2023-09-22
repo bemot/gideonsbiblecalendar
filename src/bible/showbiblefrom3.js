@@ -7,9 +7,9 @@ import kingJames from "../BIBLES/UkrainianOgienko.json";
 import "../css/BibleReader.css";
 
 const BIBLE_VERSIONS = {
-  "Russian Synodal": russianSynodal,
   "Ukrainian Ogienko": ukrainianOgienko,
   "King James": kingJames,
+  "Russian Synodal": russianSynodal,
 };
 
 const BibleReader = () => {
