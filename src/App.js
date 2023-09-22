@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import "./App.css";
-import Bible from "./bible/bible.js";
+import Bible from "./bible/showbiblefrom3.js";
 
 function App() {
   return (
