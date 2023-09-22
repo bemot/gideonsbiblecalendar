@@ -64,50 +64,52 @@ const BibleReader = () => {
 
   return (
     <div className="container">
-      <select
-        className="select"
-        onChange={handleVersionChange}
-        value={selectedVersion || ""}
-      >
-        <option value="">Select Version</option>
-        {Object.keys(BIBLE_VERSIONS).map((version) => (
-          <option key={version} value={version}>
-            {version}
-          </option>
-        ))}
-      </select>
-
-      {selectedVersion && (
+      <div className="selector-container">
         <select
           className="select"
-          onChange={handleBookChange}
-          value={selectedBook || ""}
+          onChange={handleVersionChange}
+          value={selectedVersion || ""}
         >
-          <option value="">Select Book</option>
-          {books.map((book, index) => (
-            <option key={index} value={book.name}>
-              {book.name}
+          <option value="">Select Version</option>
+          {Object.keys(BIBLE_VERSIONS).map((version) => (
+            <option key={version} value={version}>
+              {version}
             </option>
           ))}
         </select>
-      )}
 
-      {selectedBook && (
-        <select
-          className="select"
-          onChange={handleChapterChange}
-          value={selectedChapter || ""}
-        >
-          <option value="">Select Chapter</option>
-          {books
-            .find((b) => b.name === selectedBook)
-            .chapters.map((chapter) => (
-              <option key={chapter.chapter} value={chapter.chapter}>
-                Chapter {chapter.chapter}
+        {selectedVersion && (
+          <select
+            className="select"
+            onChange={handleBookChange}
+            value={selectedBook || ""}
+          >
+            <option value="">Select Book</option>
+            {books.map((book, index) => (
+              <option key={index} value={book.name}>
+                {book.name}
               </option>
             ))}
-        </select>
-      )}
+          </select>
+        )}
+
+        {selectedBook && (
+          <select
+            className="select"
+            onChange={handleChapterChange}
+            value={selectedChapter || ""}
+          >
+            <option value="">Select Chapter</option>
+            {books
+              .find((b) => b.name === selectedBook)
+              .chapters.map((chapter) => (
+                <option key={chapter.chapter} value={chapter.chapter}>
+                  Chapter {chapter.chapter}
+                </option>
+              ))}
+          </select>
+        )}
+      </div>
       {selectedChapter && (
         <div className="chapter-text">
           {books
