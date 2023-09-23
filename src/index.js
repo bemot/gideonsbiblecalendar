@@ -8,11 +8,6 @@ const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 
 // 👇️ Notice that `App` is wrapped in React.StrictMode
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-);
 
 root.render(
   <React.StrictMode>
@@ -24,17 +19,3 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
-
-//import React from 'react';
-//import {createRoot} from 'react-dom/client';
-//import App from './App';
-
-//const rootElement = document.getElementById('root');
-//const root = createRoot(rootElement);
-
-// 👇️ Notice that `App` is wrapped in React.StrictMode
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-);

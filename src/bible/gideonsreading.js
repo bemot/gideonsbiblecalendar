@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import kj from "../BIBLES/KingJames.json";
-import og from "../BIBLES/UkrainianOgienko.json";
-import rs from "../BIBLES/RussianSynodal.json";
+//import kj from "../BIBLES/KingJames.json";
+//import og from "../BIBLES/UkrainianOgienko.json";
+//import rs from "../BIBLES/RussianSynodal.json";
 import jsonData from "../ChatGPT/calendar.json";
 import { DropdownList } from "react-widgets";
 import "react-widgets/styles.css";
@@ -114,14 +114,13 @@ function ShowDayMonth(props) {
 
   return (
     <div>
-      day: {day} month: {month}
-      <div>{NTtext}</div>
-      <div>{OTtext}</div>
+      <div>New Testament: {NTtext}</div>
+      <div>Old Testament: {OTtext}</div>
     </div>
   );
 }
 
-class Bible extends Component {
+class GideonsReading extends Component {
   constructor(props) {
     super(props);
 
@@ -135,12 +134,12 @@ class Bible extends Component {
 
   // Define an effect when the component mounts
   componentDidMount() {
-    document.title = `Bible: ${this.state.bible}`;
+    document.title = `Gideons Reading: ${this.state.bible}`;
   }
 
   // Define an effect when the 'count' state updates
   componentDidUpdate() {
-    document.title = `Bible: ${this.state.bible}`;
+    document.title = `Gideons Reading: ${this.state.bible}`;
   }
 
   async handleWhatBible(value) {
@@ -166,13 +165,6 @@ class Bible extends Component {
     return (
       <div>
         <div>
-          <ActivateBible
-            onChange={(value) => {
-              this.handleWhatBible(value.name);
-            }}
-          />
-        </div>
-        <div>
           <DatePicker
             selected={this.state.date}
             showIcon
@@ -180,17 +172,17 @@ class Bible extends Component {
             onChange={(value) => {
               this.handleDateChange(value);
             }}
-            showTimeSelect
+            shouldCloseOnSelect={true} //must close
             dateFormat="Pp"
           />
         </div>
         <div>
+          Gideons Reading:
           <ShowDayMonth date={this.state.date} />
         </div>
-        <ShowCurentBible biblename={this.state.biblename} />
       </div>
     );
   }
 }
 
-export default Bible;
+export default GideonsReading;
